@@ -1,0 +1,32 @@
+Given a number, you have to use switch statement to print "One" (without quotes) if the given number is equal to 1 else print "Not One"(without quotes).
+
+Example 1:
+
+Input:
+number = 10
+Output: 
+Not One
+Example 2:
+
+Input:
+number = 1
+Output:
+One
+
+Your Task: 
+Just write a switch statement at the mentioned place that prints "One" if the given number is equal to 1 else prints "Not One".
+
+
+
+..........
+
+    //write your code here
+    switch(number){
+    case 1: 
+        System.out.println("One");
+        break;
+    default: 
+        System.out.println("Not One");
+}
+    
+}
