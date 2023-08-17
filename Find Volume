@@ -1,0 +1,36 @@
+You have to find exact volume of some objects just by knowing the some of their dimensions. Here we will find volume of a cube and a rectangular box by completing the given functions.
+
+ 
+
+Example 1: 
+
+Input:
+s = 2
+Output:
+8
+Example 2: 
+
+Input:
+l = 1, w = 2, h = 3
+Output:
+6
+Your Task:
+
+Your task is to complete two functions volume(), first function will return volume of cube (taking dimension of cube as input) and second function will return volume of rectangular box (taking dimension of rectangular as input).
+
+
+Constraints:
+0 <= dimensions <= 100
+
+......
+class Solution {
+
+    // Write the first function to
+    // return the volume of cube
+    int volume(int a){
+         return a*a*a;
+    }
+    
+    int volume(int x, int y , int z){
+         return x*y*z;
+    }
