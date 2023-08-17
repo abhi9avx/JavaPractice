@@ -1,0 +1,37 @@
+Given a number, represents number of apples in a bag. You and your friend are playing a game. Both of you are picking one apple turn wise from the bag. It is given that first attempt is always by you. The person picking the last apple will be the winner. Find out the winner if the quantity of apples is given to you as a number.
+If you will win: Print "You" (without quotes)
+If your friend will win: Print "Friend" (without quotes)
+
+Note:  New line will be provided by the driver code.
+
+
+Example 1:
+
+Input:
+number = 9
+Output: 
+You
+Example 2:
+
+Input:
+number = 4
+Output:
+Friend
+Your Task: 
+
+Complete the function utility().
+
+Constraints:
+1<=number<=100
+
+.........
+
+public static void utility(int number){
+    if(number%2==0){
+        System.out.print("Friend");
+    }
+    else{
+        System.out.print("You");
+    }
+    //write your code here
+}
