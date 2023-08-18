@@ -1,0 +1,36 @@
+You have to generate a single sum() function which can take two, three or four parameters and will return sum of all the numbers. Suppose if we are given with 2 integer values a and b we have to return (a+b), if given 3 integer values a, b and c we have to return (a+b+c) and similarly for 4 numeric values (a+b+c+d). Function call will be like this:
+
+If 2 integers : sum(a, b);
+
+If 3 integers : sum(a, b, c);
+
+If 4 integers : sum(a, b, c, d); 
+
+
+Example 1:
+
+Input: a = 5, b = 2
+Output: 7
+
+Example 2:
+
+Input: a = 4, b = 5, c = 1
+Output: 10
+
+Your Task:
+Your task is to complete a function sum() which can take 2,3 or 4 parameters and returns sum of all the numbers. 
+
+..........
+
+int sum(int a, int b ){
+    //code here 
+    return a+b;
+}
+int sum(int a, int b , int c){
+    //code here 
+    return a+b+c;
+}
+int sum(int a, int b, int c , int d ){
+    //code here 
+    return a+b+c+d;
+}
