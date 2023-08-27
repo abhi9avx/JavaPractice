@@ -1,0 +1,93 @@
+You are given a string s. You need to reverse the string.
+
+Example 1:
+
+Input:
+s = Geeks
+Output: skeeG
+Example 2:
+
+Input:
+s = for
+Output: rof
+Your Task:
+
+You only need to complete the function reverseWord() that takes s as parameter and returns the reversed string.
+
+Expected Time Complexity: O(|S|).
+Expected Auxiliary Space: O(1).
+
+Constraints:
+1 <= |s| <= 10000
+
+...............
+
+class Reverse
+{
+    // Complete the function
+    // str: input string
+    public static String reverseWord(String str)
+    {
+        // Reverse the string str
+        char[] charArray = str.toCharArray();
+        int length = charArray.length;
+
+        for (int i = 0; i < length / 2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[length - i - 1];
+            charArray[length - i - 1] = temp;
+        }
+
+        return new String(charArray);
+        
+        
+    }
+}
+
+................
+
+aNOTHER WAYS 
+
+class Reverse {
+    // Complete the function
+    // str: input string
+    public static String reverseWord(String str) {
+        // Convert the input string to a character array
+        char[] charArray = str.toCharArray();
+
+        // Initialize two pointers: left at the start of the array, and right at the end of the array
+        int left = 0;
+        int right = charArray.length - 1;
+
+        // Continue swapping characters until the left pointer crosses the right pointer
+        while (left < right) {
+            // Temporarily store the character at the left pointer
+            char temp = charArray[left];
+
+            // Swap the character at the left pointer with the character at the right pointer
+            charArray[left] = charArray[right];
+
+            // Swap the character at the right pointer with the character stored in temp
+            charArray[right] = temp;
+
+            // Move the left pointer to the right and the right pointer to the left
+            left++;
+            right--;
+        }
+
+        // Create a new string from the reversed character array
+        return new String(charArray);
+    }
+
+    public static void main(String[] args) {
+        // Input string to reverse
+        String text = "Hello, World!";
+        
+        // Call the reverseWord function to reverse the input string
+        String reversedText = reverseWord(text);
+        
+        // Print the reversed string
+        System.out.println(reversedText);  // This will output "!dlroW ,olleH"
+    }
+}
+
