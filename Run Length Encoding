@@ -1,0 +1,100 @@
+Given a string, Your task is to  complete the function encode that returns the run length encoded string for the given string.
+eg if the input string is “wwwwaaadexxxxxx”, then the function should return “w4a3d1e1x6″.
+You are required to complete the function encode that takes only one argument the string which is to be encoded and returns the encoded string.
+
+Example 1:
+
+Input:
+str = aaaabbbccc
+Output: a4b3c3
+Explanation: a repeated 4 times
+consecutively b 3 times, c also 3
+times.
+Example 2:
+
+Input:
+str = abbbcdddd
+Output: a1b3c1d4
+Your Task:
+Complete the function encode() which takes a character array as a input parameter and returns the encoded string.
+
+Expected Time Complexity: O(N), N = length of given string.
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1<=length of str<=100
+
+............
+
+
+class GfG
+ {
+	
+	String encode(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
+
+        int count = 1;
+        String result = "";
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                result += str.charAt(i - 1) + String.valueOf(count);
+                count = 1;
+            }
+        }
+        result += str.charAt(str.length() - 1) + String.valueOf(count);
+        return result;
+    }
+	
+ }
+
+...........
+
+
+
+**Line 1:**
+```java
+String encode(String str) {
+```
+Imagine we have a magic function called `encode` that takes a bunch of letters (we call this a "string") as a secret message. This function changes the message in a special way and gives us back a new secret message.
+
+**Line 2-4:**
+```java
+if (str == null || str.isEmpty()) {
+    return "";
+}
+```
+This part checks if the secret message is empty or has nothing in it. If there's nothing in the message, the magic function says, "Hmm, there's no message, so I'll give you back an empty message too."
+
+**Line 6-7:**
+```java
+int count = 1;
+String result = "";
+```
+We're going to use two special things while looking at the secret message. One is called a "counter," and we start it at 1. The other is a place to keep our new secret message, and we start with an empty one.
+
+**Line 9-14:**
+```java
+for (int i = 1; i < str.length(); i++) {
+    if (str.charAt(i) == str.charAt(i - 1)) {
+        count++;
+    } else {
+        result += str.charAt(i - 1) + String.valueOf(count);
+        count = 1;
+    }
+}
+```
+Now we start looking at the secret message, letter by letter. If a letter is the same as the one before it, we increase our counter by 1. But if the new letter is different, we take the old letter and how many times it appeared (the counter), and we add that to our new secret message. Then we start counting the new letter from 1 again.
+
+**Line 15-16:**
+```java
+result += str.charAt(str.length() - 1) + String.valueOf(count);
+return result;
+```
+After we've looked at all the letters, there might be a last letter left that we didn't add to the new message. We add it now along with how many times it appeared (the counter). Then, we give back our final secret message.
+
+So, this magic function takes a secret message, changes it by counting the letters, and gives us a new secret message that looks a bit different!
