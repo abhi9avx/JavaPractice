@@ -1,0 +1,39 @@
+Reverse String
+
+......
+Given a string s, you need to reverse it.
+
+Example 1:
+
+Input:
+s = "Hello"
+Output: 
+olleH
+Explanation: Reverse of Hello is olleH
+Example 2:
+
+Input:
+s = "World"
+Output:
+dlroW
+Explanation: Reverse of World is dlroW
+Your Task: 
+The task is to complete the reverseString() which takes a string s as parameter and returns the reversed string.
+
+..............
+
+public static String reverseString(String s){
+    // code here
+    String reversed = "";
+    // finding the length of the string
+    int length = s.length();
+    // traverse the string  backward
+    for(int i = length-1; i >= 0; i--){
+        // concatenate each string to the reversed string
+        reversed  = reversed + s.charAt(i);
+    }
+    // return the reversed string
+    return reversed;
+    
+    
+}
