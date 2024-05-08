@@ -1,0 +1,68 @@
+class Solution {
+  public:
+    vector<vector<int>> Paths(Node* root) {
+        // code here
+        vector<vector<int>> ans;
+        stack<pair<Node*, vector<int>>> st;
+        st.push({root, {}});
+
+        while (!st.empty()) {
+            auto x = st.top();
+            Node* node=x.first;
+            vector<int> path=x.second;
+            st.pop();
+
+            if (node != nullptr) {
+                path.push_back(node->data);
+
+                if (node->left == nullptr && node->right == nullptr) {
+                    ans.push_back(path);
+                } else {
+                    st.push({node->right, path});
+                    st.push({node->left, path});
+                }
+            }
+        }
+
+        return ans;
+    }
+};
+.......
+
+Given a Binary Tree of nodes, you need to find all the possible paths from the root node to all the leaf nodes of the binary tree.
+
+Example 1:
+
+Input:
+       1
+    /     \
+   2       3
+Output: 
+1 2 
+1 3 
+Explanation: 
+All possible paths:
+1->2
+1->3
+Example 2:
+
+Input:
+         10
+       /    \
+      20    30
+     /  \
+    40   60
+Output: 
+10 20 40 
+10 20 60 
+10 30 
+Your Task:
+Your task is to complete the function Paths() which takes the root node as an argument and returns all the possible paths. (All the paths are printed in new lines by the driver's code.)
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(height of the tree)
+
+Constraints:
+1<=n<=104
+
+
