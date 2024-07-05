@@ -1,0 +1,69 @@
+class Solution {
+    
+    static class Pair {
+        int hd;
+        Node root;
+
+        public Pair(int hd, Node root) {
+            this.hd = hd;
+            this.root = root;
+        }
+    }
+    
+    public int verticalWidth(Node root) {
+        
+        if(root==null)return 0;
+
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(0, root));
+
+        Set<Integer> set = new HashSet<>();
+
+        while (!q.isEmpty()) {
+            Pair temp = q.poll();
+            if (temp.hd < 0) {
+                set.add(Integer.MAX_VALUE + temp.hd);
+            } else {
+                set.add(temp.hd);
+            }
+
+            if (temp.root.left != null) q.add(new Pair(temp.hd - 1, temp.root.left));
+            if (temp.root.right != null) q.add(new Pair(temp.hd + 1, temp.root.right));
+        }
+
+        return set.size();
+    }
+}
+
+........
+
+Given a Binary Tree. You need to find and return the vertical width of the tree.
+
+Examples :
+
+Input:
+         1
+       /    \
+      2      3
+     / \    /  \
+    4   5  6   7
+            \   \
+             8   9
+Output: 6
+Explanation: The width of a binary tree is
+the number of vertical paths in that tree.
+
+
+
+The above tree contains 6 vertical lines.
+Input:
+     1
+    /  \
+   2    3
+Output: 3
+Explanation: The above tree has 3 vertical lines, hence the answer is 3.
+Expected Time Complexity: O(nlogn)
+Expected Auxiliary Space: O(height of the tree).
+
+Constraints:
+0 <= number of nodes <= 104
