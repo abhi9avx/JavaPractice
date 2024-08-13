@@ -1,0 +1,40 @@
+long floorSqrt(long n) {
+        long left = 0;
+        long right = n;
+        long ans = 0;
+        
+        while (left <= right) {
+            long mid = left + (right-left)/2;
+            long sq = mid * mid;
+            if(sq == n) {
+                return mid;
+            } else if(sq < n) {
+                ans = mid;
+                left = mid + 1;
+            } else {
+                right = mid - 1;   
+            }
+        }
+        return ans;
+
+........................
+Given an integer n, find the square root of n. If n is not a perfect square, then return the floor value.
+
+Floor value of any number is the greatest Integer which is less than or equal to that number
+
+Examples:
+
+Input: n = 5
+Output: 2
+Explanation: Since, 5 is not a perfect square, floor of square_root of 5 is 2.
+Input: n = 4
+Output: 2
+Explanation: Since, 4 is a perfect square, so its square root is 2.
+Expected Time Complexity: O(logn)
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1 ≤ n ≤ 107
+
+
+..........
